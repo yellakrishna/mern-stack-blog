@@ -13,7 +13,7 @@ const SinglePost = () => {
 
     useEffect(() => {
         const fetchPost = async () => {
-            const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+            const res = await axios.get(`https://new-blogs-backend.onrender.com/api/posts/${id}`);
             setPost(res.data);
         };
         fetchPost();
@@ -21,10 +21,10 @@ const SinglePost = () => {
 
     const handleRating = async (newRating) => {
     setSelectedRating(newRating);
-    await axios.put(`http://localhost:5000/api/posts/${id}/rating`, {
+    await axios.put(`https://new-blogs-backend.onrender.com/api/posts/${id}/rating`, {
         rating: newRating,
     });
-    const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+    const res = await axios.get(`https://new-blogs-backend.onrender.com/api/posts/${id}`);
     setPost(res.data);
     navigate("/");
 };
@@ -32,12 +32,12 @@ const SinglePost = () => {
 
     const handleCommentSubmit = async (e) => {
         e.preventDefault();
-        await axios.post(`http://localhost:5000/api/posts/${id}/comment`, {
+        await axios.post(`https://new-blogs-backend.onrender.com/api/posts/${id}/comment`, {
             username: user.username,
             text: comment,
         });
         setComment("");
-        const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const res = await axios.get(`https://new-blogs-backend.onrender.com/api/posts/${id}`);
         setPost(res.data);
     };
 
