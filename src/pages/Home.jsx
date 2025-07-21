@@ -13,6 +13,15 @@ const Home = () => {
         fetchPosts();
     }, []);
 
+    if (!posts.length) {
+        return <div className="spinner"></div>;
+    }
+
+    if (posts.length === 0) {
+        return <div>No posts available</div>;   
+    }
+
+
     return (
         <div className="home-grid">
             {posts.map((post) => (
