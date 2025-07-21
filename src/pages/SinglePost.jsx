@@ -41,7 +41,7 @@ const SinglePost = () => {
         setPost(res.data);
     };
 
-    if (!post) return <h2>Loading...</h2>;
+    if (!post) return   <div className="spinner"></div>;
 
     return (
    <div className="single-post-container">
